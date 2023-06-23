@@ -2,7 +2,7 @@
 
 describe('Funcionalidade Pagina de produtos', () => {
     beforeEach(() =>{
-        cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
+        cy.visit('produtos/')
 
 
     });
@@ -30,6 +30,11 @@ describe('Funcionalidade Pagina de produtos', () => {
             cy.get('.dropdown-toggle > .mini-cart-items').should('contain',quantidade)
             cy.get('.woocommerce-message').should('contain',quantidade + ' × “Atlas Fitness Tank” foram adicionados no seu carrinho.')
 
+    });
+
+    it('Deve adicionar produtos ao carrinho - usando comando customizado', () => {
+        cy.addProdutos('Atlas Fitness Tank', 'M', 'Blue', 3)
+        
     });
 
 });
